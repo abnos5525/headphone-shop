@@ -2,32 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #ff8520;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.slick-dots {
+  bottom: 10px !important; /* فاصله دلخواه از پایین */
 }
+
+.slick-list{
+  height: 100%;
+}
+
+.slick-dots ul{
+  padding: 0;
+}
+
+.slick-slide {
+  margin: 0 !important; /* حذف حاشیه */
+}
+
+.slick-dots li.slick-active div {
+  @apply bg-blue-950;
+}
+
+.rtl{
+  direction: rtl;
+}
+/* styles/globals.css یا هر فایل CSS دیگری که استفاده می‌کنید */
+
+.slick-prev{
+  right: 10px !important; /* تنظیم فاصله از سمت چپ */
+  z-index: 1;
+}
+
+.slick-next{
+  left: 10px !important; /* تنظیم فاصله از سمت راست */
+  z-index: 1;
+}
+
+/* pagination.css */
+.MuiPagination-ul {
+  direction: rtl; /* تغییر جهت لیست به راست به چپ */
+}
+
+.MuiPagination-ul .MuiPaginationItem-root .MuiSvgIcon-root {
+  transform: rotateY(180deg); /* برعکس کردن فلش‌ها */
+}
+
+.creamy{
+  background-color: #ffd686;
+}
+
+.blue{
+  background-color: #2C4E80 ;
+}
+
+.blue_hover{
+  background-color: #00215E;
+}
+
+.blue:hover{
+  background-color: #00215E;
+}
+
+
