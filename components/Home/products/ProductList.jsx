@@ -13,7 +13,6 @@ import { Context } from '@/context/ContextApp'
 import Page500 from "@/components/errors/Page500"
 import { Pagination, Skeleton } from "@mui/material"
 import ProductCard from "@/components/Home/products/ProductCard";
-import _ from "lodash";
 
 const ProductList = () => {
     const { products, setProducts } = useContext(Context)
@@ -21,8 +20,6 @@ const ProductList = () => {
 
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState(1)
-
-    // const [filteredProducts, setFilteredProducts] = useState([])
 
     const {
         data: productsData,
@@ -69,13 +66,6 @@ const ProductList = () => {
         }
     }, [productsData, setProducts]);
 
-    const contactSearch= _.debounce((query)=>{
-
-        if(!query) return setProducts([...products])
-        setProducts(draft => draft.filter(c => c.attributes.title_fa.includes(query)))
-
-    },1000)
-
     const sortStyle = 'block text-lg my-2 blue rounded py-1 text-white transition transform ' +
         'hover:scale-110 duration-300 cursor-pointer';
 
@@ -85,8 +75,6 @@ const ProductList = () => {
         <div className="flex flex-wrap creamy rounded mx-5 mt-5 mb-8">
             <div className="lg:w-1/4 md:w-1/4 sm:w-full xs:w-full p-5 lg:sticky md:sticky top-0 self-start
             lg:border-l md:border-l border-gray-500 text-center">
-                <label>جستجو:</label>
-                <input onChange={event => contactSearch(event.target.value)} type="text" placeholder="جستجوی محصول..." className="m-2 rounded"/>
                 <h4 className="font-bold mb-2 text-xl bg-blue-400 rounded pb-1 text-gray-800">دسته بندی براساس</h4>
                 <hr className="border-gray-500" />
                 <div>
